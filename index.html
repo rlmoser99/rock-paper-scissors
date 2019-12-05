@@ -54,7 +54,12 @@
                 const computerSelection = computerPlay()
                 console.log(playRound(playerSelection, computerSelection))
             }
-            console.log(`Final Score: ${playerScore} to ${computerScore}`);
+            if (playerScore > computerScore) {
+                console.log(`You're the winner! Final Score: ${playerScore} to ${computerScore}`);
+            } else if (computerScore > playerScore) {
+                console.log(`You're the loser. Final Score: ${playerScore} to ${computerScore}`);
+            } else
+                console.log(`You tied. Final Score: ${playerScore} to ${computerScore}`);
         }
 
         game();
