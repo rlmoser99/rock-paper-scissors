@@ -1,12 +1,12 @@
 function computerPlay() {
-    const number = (Math.random() * 3);
-    if (number <= 1) {
-        return 'Rock';
-    } else if (number >= 2) {
-        return 'Scissors';
+    const number = Math.floor(Math.random() * 1000);
+    if (number % 3 === 0) {
+        return 'rock';
+    } else if (number % 3 === 1) {
+        return 'paper';
     }
-    else return 'Paper';
-}
+    else return 'scissors';
+};
 
 // let computerScore = 0;
 // let playerScore = 0;
@@ -14,36 +14,38 @@ function computerPlay() {
 function playRound(playerSelection, computerSelection) {
     playerSelection = this.textContent.toLowerCase();
     computerSelection = computerPlay();
-    console.log(`player: ${playerSelection}`);
-    console.log(`computer: ${computerSelection}`);
-    if (playerSelection == 'rock' && computerSelection == 'Scissors') {
-        console.log( `You Win! Rock beats Scissors.`);
-    } else if (playerSelection == 'rock' && computerSelection == 'Paper') {
-        console.log( `You Lose! Paper covers rock`);
-    } else if (playerSelection == 'paper' && computerSelection == 'Scissors') {
-        console.log( `You Lose! Scissors cut paper`);
-    } else if (playerSelection == 'paper' && computerSelection == 'Rock') {
-        console.log( `You Win! Paper covers rock`);
-    } else if (playerSelection == 'scissors' && computerSelection == "Rock") {
-        console.log( `You Lose! Scissors beats rock`);
-    } else if (playerSelection == 'scissors' && computerSelection == 'Paper') {
-        console.log( `You Win! Scissors beat paper`);
+    // console.log(`player: ${playerSelection}`);
+    // console.log(`computer: ${computerSelection}`);
+    if (
+            (playerSelection == 'rock' && computerSelection == 'scissors') ||
+            (playerSelection == 'paper' && computerSelection == 'rock') ||
+            (playerSelection == 'scissors' && computerSelection == 'paper')
+    ) {
+            resultDiv.textContent = `You Win, because ${playerSelection} beats ${computerSelection}.`;
+    } else if (
+            (playerSelection == 'rock' && computerSelection == 'paper') ||
+            (playerSelection == 'paper' && computerSelection == 'scissors') ||
+            (playerSelection == 'scissors' && computerSelection == 'rock')
+    ) {
+            resultDiv.textContent = `You Lost, because ${computerSelection} beats ${playerSelection}.`;
+    } else {
+            resultDiv.textContent = `It's a tie. The computer picked ${computerSelection} too. Try Again!`;
     }
-    else console.log( `That was a draw. Try Again!`);
 }
+
+
 
 const rockButton = document.querySelector('.rock');
 const paperButton = document.querySelector('.paper');
 const scissorsButton = document.querySelector('.scissors');
 
-// function playerButton() {
-//     // playerSelection = this.textContent;
-//     console.log(this.textContent)
-// }
-
 rockButton.addEventListener('click', playRound);
 paperButton.addEventListener('click', playRound);
 scissorsButton.addEventListener('click', playRound);
+
+const resultDiv = document.createElement('div');
+document.body.appendChild(resultDiv);
+
 
 // function playRound(playerSelection, computerPlay) {
 //     if (playerSelection == 'rock' && computerPlay == 'Scissors') {
@@ -86,9 +88,7 @@ scissorsButton.addEventListener('click', playRound);
 
 // game();
 
-// x Copy your original code into a new file so you don’t lose it.
-// x For now, remove the logic that plays exactly five rounds.
-// Create three buttons, one for each selection. Add an event listener to the buttons that calls your playRound function with the correct playerSelection every time a button is clicked. (you can keep the console.logs for this step)
+
 // Add a div for displaying results and change all of your console.logs into DOM methods.
 // Display the running score, and announce a winner of the game once one player reaches 5 points.
 // You will likely have to refactor (rework/rewrite) your original code to make it work for this. That’s OK! Reworking old code is an important part of the programmer’s life.
