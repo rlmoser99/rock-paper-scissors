@@ -10,12 +10,15 @@ function computerPlay() {
 
 // let computerScore = 0;
 // let playerScore = 0;
+// const key = document.querySelector(`.key[data-key="${e.keyCode}"]`);
+
 
 function playRound(playerSelection, computerSelection) {
-    playerSelection = this.textContent.toLowerCase();
+    buttonChoice = this.dataset.button;
+    playerSelection = buttonChoice;
     computerSelection = computerPlay();
-    // console.log(`player: ${playerSelection}`);
-    // console.log(`computer: ${computerSelection}`);
+    console.log(`player: ${playerSelection}`);
+    console.log(`computer: ${computerSelection}`);
     if (
             (playerSelection == 'rock' && computerSelection == 'scissors') ||
             (playerSelection == 'paper' && computerSelection == 'rock') ||
