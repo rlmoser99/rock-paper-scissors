@@ -17,26 +17,29 @@ function playGame(playerSelection, computerSelection) {
         computerSelection = computerPlay();
         const userScore = document.querySelector('.user-score');
         const randomScore = document.querySelector('.computer-score');
-        if (computerScore >= 5 || playerScore >= 5) {
-                resultDiv.textContent = `Game Over. Refresh page to play again.`;
+        if (playerScore >= 5) {
+                resultDiv.textContent = `You won the best out of 5. Game Over. Refresh page to play again.`;
+        
+        } else if (
+                computerScore >= 5
+        ) {
+                resultDiv.textContent = `The computer won. Game Over. Refresh page to play again.`;
         } else if (
                 (playerSelection == 'rock' && computerSelection == 'scissors') ||
                 (playerSelection == 'paper' && computerSelection == 'rock') ||
-                (playerSelection == 'scissors' &&
-                        computerSelection == 'paper' &&
-                        (computerScore <= 5 || playerScore <= 5))
+                (playerSelection == 'scissors' && computerSelection == 'paper') &&
+                        ((computerScore <= 5 || playerScore <= 5))
         ) {
-                resultDiv.textContent = `You Win, because ${playerSelection} beats ${computerSelection}.`;
+                resultDiv.textContent = `You won, because ${playerSelection} beats ${computerSelection}.`;
                 playerScore++;
                 userScore.textContent = `${playerScore}`;
         } else if (
                 (playerSelection == 'rock' && computerSelection == 'paper') ||
                 (playerSelection == 'paper' && computerSelection == 'scissors') ||
-                (playerSelection == 'scissors' &&
-                        computerSelection == 'rock' &&
-                        (computerScore <= 5 || playerScore <= 5))
+                (playerSelection == 'scissors' && computerSelection == 'rock') &&
+                        ((computerScore <= 5 || playerScore <= 5))
         ) {
-                resultDiv.textContent = `You Lost, because ${computerSelection} beats ${playerSelection}.`;
+                resultDiv.textContent = `You lost, because ${computerSelection} beats ${playerSelection}.`;
                 computerScore++;
                 randomScore.textContent = `${computerScore}`;
         } else {

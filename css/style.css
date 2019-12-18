@@ -62,7 +62,7 @@ h3 {
 }
 
 .computer-container {
-    background-color: #cca43b;
+    background-color: #314158;
 }
 
 .user-profile, .computer-profile {
@@ -83,6 +83,13 @@ h3 {
 
 .round-result {
     padding: 15px;
+    color: #ffb900;
+    font-size: 1.2em;
+}
+
+
+.user-score, .computer-score {
+    color: #ffb900;
 }
 
 /* 
