@@ -47,7 +47,9 @@ paperButton.addEventListener('click', playRound);
 scissorsButton.addEventListener('click', playRound);
 
 const resultDiv = document.createElement('div');
-document.body.appendChild(resultDiv);
+resultDiv.classList.add('round-result')
+const userContainer = document.querySelector('.user-container')
+userContainer.insertAdjacentElement('afterend', resultDiv);
 
 
 // function playRound(playerSelection, computerPlay) {

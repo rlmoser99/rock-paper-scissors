@@ -13,14 +13,13 @@ body {
     border-radius: 5px;
     color: #e5e5e5;  
     font-size: 1.2em;
-    margin: 5px;
     padding: 7px;
 }
 
 h1 {
     font-size: 2em;
     margin: 15px;
-    padding-bottom: 30px;
+    padding-bottom: 15px;
     text-align: center;
 }
 
@@ -36,6 +35,7 @@ h3 {
 
 .player-label h2 {
     margin-bottom: 5px;
+    margin-top: 15px;
 }
 
 .player-type i {
@@ -69,22 +69,20 @@ h3 {
     display: flex;
     justify-content: space-between;
     margin: 0 15px;
+    padding-bottom: 5px;
 }
 
-.user-buttons {
-    color: black;
-    display: flex;
-    justify-content: space-between;
-}
-
-.computer-buttons {
-    color: black;
+.user-buttons, .computer-buttons {
     display: flex;
     justify-content: space-between;
 }
 
 .user-icon {
     line-height: 42px;
+}
+
+.round-result {
+    padding: 15px;
 }
 
 /* 
