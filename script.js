@@ -12,6 +12,7 @@ function computerPlay() {
     let playerScore = 0;
     
     function playGame(playerSelection, computerSelection) {
+        removeColor ();
             buttonChoice = this.dataset.button;
             playerSelection = buttonChoice;
             computerSelection = computerPlay();
@@ -50,8 +51,30 @@ function computerPlay() {
             } else {
                     results.textContent = `It's a tie. The computer picked ${computerSelection} too. Try Again!`;
             }
+        computerColor(computerSelection);
     }
     
+function computerColor (computerSelection) {
+        if (computerSelection == 'rock') {
+                computerRock.classList.add('computerPick');
+        }
+        if (computerSelection == 'paper') {
+                computerPaper.classList.add('computerPick');
+        }
+        if (computerSelection == 'scissors') {
+                computerScissors.classList.add('computerPick');
+        }
+}
+
+function removeColor () {
+        computerRock.classList.remove('computerPick');
+        computerPaper.classList.remove('computerPick');
+        computerScissors.classList.remove('computerPick');
+}
+
+
+
+
     const rockButton = document.querySelector('.rock');
     const paperButton = document.querySelector('.paper');
     const scissorsButton = document.querySelector('.scissors');
@@ -66,6 +89,10 @@ function computerPlay() {
     resultDiv.classList.add('round-result')
     const userContainer = document.querySelector('.user-container')
     userContainer.insertAdjacentElement('afterend', resultDiv);
+
+    const computerRock = document.querySelector('.computer-rock');
+    const computerPaper = document.querySelector('.computer-paper');
+    const computerScissors = document.querySelector('.computer-scissors');
 
 // Add hover and active states
 // Change color of computer choice 

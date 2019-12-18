@@ -105,6 +105,12 @@ h3 {
     padding-top: 5px;
 }
 
+
+.computerPick {
+    border: 1px solid #ffb900;
+    box-shadow: 0px 1px 5px 0px #ffb900;
+}
+
 /* 
 yellow: #cca43b
 blue: #242f40
