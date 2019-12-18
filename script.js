@@ -23,11 +23,11 @@ function computerPlay() {
                     (playerSelection == 'scissors' && computerSelection == 'paper') &&
                             ((computerScore <= 5 || playerScore <= 5))
             ) {
-                    resultDiv.textContent = `You won, because ${playerSelection} beats ${computerSelection}.`;
+                    results.textContent = `You won, because ${playerSelection} beats ${computerSelection}.`;
                     playerScore++;
                     userScore.textContent = `${playerScore}`;
                     if (playerScore >= 5) {
-                        resultDiv.textContent = `GAME OVER! YOU WON!`;
+                        results.textContent = `GAME OVER. Congrats! You beat the computer! Refresh to try again!`;
                         rockButton.removeEventListener('click', playGame);
                         paperButton.removeEventListener('click', playGame);
                         scissorsButton.removeEventListener('click', playGame);
@@ -38,17 +38,17 @@ function computerPlay() {
                     (playerSelection == 'scissors' && computerSelection == 'rock') &&
                             ((computerScore <= 5 || playerScore <= 5))
             ) {
-                    resultDiv.textContent = `You lost, because ${computerSelection} beats ${playerSelection}.`;
+                    results.textContent = `You lost, because ${computerSelection} beats ${playerSelection}.`;
                     computerScore++;
                     randomScore.textContent = `${computerScore}`;
                     if (computerScore >= 5) {
-                        resultDiv.textContent = `GAME OVER! COMPUTER WON!`;
+                        results.textContent = `GAME OVER. Sorry, the computer won. Refresh to try again!`;
                         rockButton.removeEventListener('click', playGame);
                         paperButton.removeEventListener('click', playGame);
                         scissorsButton.removeEventListener('click', playGame);
                     }
             } else {
-                    resultDiv.textContent = `It's a tie. The computer picked ${computerSelection} too. Try Again!`;
+                    results.textContent = `It's a tie. The computer picked ${computerSelection} too. Try Again!`;
             }
     }
     
@@ -61,9 +61,13 @@ function computerPlay() {
     scissorsButton.addEventListener('click', playGame);
     
     const resultDiv = document.createElement('div');
+    const results = document.createElement('p');
+    resultDiv.appendChild(results);
     resultDiv.classList.add('round-result')
     const userContainer = document.querySelector('.user-container')
     userContainer.insertAdjacentElement('afterend', resultDiv);
 
-    // Don’t forget to go back and add your new version to the original Rock Paper Scissors Project!
+// Add hover and active states
+// Change color of computer choice 
+// Don’t forget to go back and add your new version to the original Rock Paper Scissors Project!
     

@@ -16,6 +16,15 @@ body {
     padding: 7px;
 }
 
+.button:hover {
+    box-shadow: 0px 1px 5px 0px #e5e5e5;
+}
+
+.button:active {
+    border: 1px solid #ffb900;
+    box-shadow: 0px 1px 5px 0px #ffb900;
+}
+
 h1 {
     font-size: 2em;
     margin: 15px;
@@ -90,6 +99,10 @@ h3 {
 
 .user-score, .computer-score {
     color: #ffb900;
+}
+
+.button h3:last-child {
+    padding-top: 5px;
 }
 
 /* 
