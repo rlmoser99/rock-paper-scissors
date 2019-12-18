@@ -1,24 +1,27 @@
+/* Background pattern from Total Subtle Patterns */
+
 body {
-    background: rgb(2,0,36);
-    background: linear-gradient(135deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 40%, rgba(255,0,176,1) 100%);
-    color: white;
+    background-image: url(../img/dark_wall.png);
+    color: #e5e5e5;
     font-family: Arial, Helvetica, sans-serif;
     font-size: 14px;
 }
 
 .button {
-    background-color: white;   
-    padding: 7px;
+    background-color: #363636; 
+    border: 1px solid #e5e5e5;
     border-radius: 5px;
+    color: #e5e5e5;  
     font-size: 1.2em;
     margin: 5px;
+    padding: 7px;
 }
 
 h1 {
     font-size: 2em;
-    text-align: center;
     margin: 15px;
     padding-bottom: 30px;
+    text-align: center;
 }
 
 h2 {
@@ -27,8 +30,12 @@ h2 {
 }
 
 h3 {
-    text-align: center;
     font-size: 1em;
+    text-align: center;
+}
+
+.player-label h2 {
+    margin-bottom: 5px;
 }
 
 .player-type i {
@@ -44,10 +51,18 @@ h3 {
 }
 
 .user-container, .computer-container {
-    border: 1px solid white;
-    padding: 10px;
+    border: 1px solid #e5e5e5;
     border-radius: 5px;
     margin-bottom: 30px;
+    padding: 10px;
+}
+
+.user-container {
+    background-color: #242f40;
+}
+
+.computer-container {
+    background-color: #cca43b;
 }
 
 .user-profile, .computer-profile {
@@ -57,17 +72,24 @@ h3 {
 }
 
 .user-buttons {
-    color: #ff00b0;
+    color: black;
     display: flex;
     justify-content: space-between;
 }
 
 .computer-buttons {
-    color: #090979;
+    color: black;
     display: flex;
     justify-content: space-between;
 }
 
+.user-icon {
+    line-height: 42px;
+}
 
-/* blue: #090979 */
-/* pink: #ff00b0 */
+/* 
+yellow: #cca43b
+blue: #242f40
+dark grey: #363636
+light grey: #e5e5e5
+*/
