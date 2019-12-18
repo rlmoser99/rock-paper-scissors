@@ -1,55 +1,73 @@
 body {
-    background-color: skyblue;
+    background: rgb(2,0,36);
+    background: linear-gradient(135deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 40%, rgba(255,0,176,1) 100%);
+    color: white;
     font-family: Arial, Helvetica, sans-serif;
     font-size: 14px;
 }
 
-.user-buttons {
-    display: flex;
-    flex-direction: column;
-}
-
-.user-buttons > * {
-    flex: 0 1 auto;
-}
-
-button {
+.button {
     background-color: white;   
-    padding: 10px;
+    padding: 7px;
     border-radius: 5px;
     font-size: 1.2em;
-}
-
-.user-buttons, .computer-output {
-    padding: 15px;
+    margin: 5px;
 }
 
 h1 {
     font-size: 2em;
     text-align: center;
     margin: 15px;
+    padding-bottom: 30px;
 }
 
 h2 {
     font-size: 1.5em;
     text-align: center;
-    margin-bottom: 15px;
 }
 
 h3 {
-    font-size: 1.25em;
-}
-
-button i {
-    font-size: 3em;
+    text-align: center;
+    font-size: 1em;
 }
 
 .player-type i {
-    font-size: 1.5em;
+    font-size: 1.25em;
 }
 
-.single-round {
+.user-score, .computer-score, .button i {
+    font-size: 2em;
+}
+
+.game-wrapper {
+    margin: 0 15px;
+}
+
+.user-container, .computer-container {
+    border: 1px solid white;
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 30px;
+}
+
+.user-profile, .computer-profile {
     display: flex;
-    justify-content: space-evenly;
+    justify-content: space-between;
+    margin: 0 15px;
 }
 
+.user-buttons {
+    color: #ff00b0;
+    display: flex;
+    justify-content: space-between;
+}
+
+.computer-buttons {
+    color: #090979;
+    display: flex;
+    justify-content: space-between;
+}
+
+
+/* blue: #090979 */
+/* pink: #ff00b0 */

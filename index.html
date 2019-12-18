@@ -14,31 +14,61 @@
 
 <body>
     <h1>Rock Paper Scissors</h1>
-    <div class="single-round">
-        <div class="user-buttons">
-            <div class="player-type">
-                <h2><i class="fas fa-user"></i></h2>
-                <h2>User</h2>
-            </div>
-            <button class="rock"><i class="far fa-hand-rock"></i>
-                <h3>Rock</h3>
-            </button>
-            <button class="paper"><i class="far fa-hand-paper"></i>
-                <h3>Paper</h3>
-            </button>
-            <button class="scissors"><i class="far fa-hand-scissors"></i>
-                <h3>Scissors</h3>
-            </button>
+    <div class="game-wrapper">
+        <div class="player-type player-icon">
+            <h2>Human</h2>
         </div>
-        <div class="computer-output">
-            <div class="player-type">
-                <h2><i class="fas fa-laptop-code"></i></h2>
-                <h2>Computer</h2>
+        <div class="user-container">
+            <div class="user-profile">
+                <div class="player-type player-icon">
+                    <h2 class="user-icon"><i class="fas fa-user"></i></h2>
+                </div>
+                <div class="user-points">
+                    <h3>Score</h3>
+                    <h2 class="user-score">2</h2>
+                </div>
             </div>
-            <div class="computer-button">
-                <button><i class="far fa-hand-scissors"></i>
-                    <h3>JavaScript</h3>
-                </button>
+            <div class="user-buttons">
+                <div class="rock button">
+                    <h3><i class="far fa-hand-rock"></i></h3>
+                    <h3>Rock</h3>
+                </div>
+                <div class="paper button">
+                    <h3><i class="far fa-hand-paper"></i></h3>
+                    <h3>Paper</h3>
+                </div>
+                <div class="scissors button">
+                    <h3><i class="far fa-hand-scissors"></i></h3>
+                    <h3>Scissors</h3>
+                </div>
+            </div>
+        </div>
+        <div class="user-icon">
+            <h2>Computer</h2>
+        </div>
+        <div class="computer-container">
+            <div class="computer-profile">
+                <div class="player-type computer-icon">
+                    <h2><i class="fas fa-laptop"></i></h2>
+                </div>
+                <div class="computer-points">
+                    <h3>Score</h3>
+                    <h2 class="computer-score">3</h2>
+                </div>
+            </div>
+            <div class="computer-buttons">
+                <div class="button">
+                    <h3><i class="far fa-hand-rock"></i></h3>
+                    <h3>Rock</h3>
+                </div>
+                <div class="button">
+                    <h3><i class="far fa-hand-paper"></i></h3>
+                    <h3>Paper</h3>
+                </div>
+                <div class="button">
+                    <h3><i class="far fa-hand-scissors"></i></h3>
+                    <h3>Scissors</h3>
+                </div>
             </div>
         </div>
     </div>
