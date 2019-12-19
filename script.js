@@ -12,9 +12,9 @@ function computerPlay() {
     let playerScore = 0;
     
     function playGame(playerSelection, computerSelection) {
-        removeColor ();
             buttonChoice = this.dataset.button;
             playerSelection = buttonChoice;
+            this.classList.add('userClick');
             computerSelection = computerPlay();
             const userScore = document.querySelector('.user-score');
             const randomScore = document.querySelector('.computer-score');
@@ -28,7 +28,7 @@ function computerPlay() {
                     playerScore++;
                     userScore.textContent = `${playerScore}`;
                     if (playerScore >= 5) {
-                        results.textContent = `GAME OVER. Congrats! You beat the computer! Refresh to try again!`;
+                        results.textContent = `Congrats! You won the FINAL ROUND, because ${playerSelection} beats ${computerSelection}. Refresh to try again!`;
                         rockButton.removeEventListener('click', playGame);
                         paperButton.removeEventListener('click', playGame);
                         scissorsButton.removeEventListener('click', playGame);
@@ -43,7 +43,7 @@ function computerPlay() {
                     computerScore++;
                     randomScore.textContent = `${computerScore}`;
                     if (computerScore >= 5) {
-                        results.textContent = `GAME OVER. Sorry, the computer won. Refresh to try again!`;
+                        results.textContent = `You lost the final round, because ${computerSelection} beats ${playerSelection}. GAME OVER, but you can refresh to try again!`;
                         rockButton.removeEventListener('click', playGame);
                         paperButton.removeEventListener('click', playGame);
                         scissorsButton.removeEventListener('click', playGame);
@@ -72,8 +72,19 @@ function removeColor () {
         computerScissors.classList.remove('computerPick');
 }
 
+function userHover () {
+        if ((playerScore <= 4) && (computerScore <= 4)) {
+                this.classList.add('userHover');
+        }
+}
 
+function removeHover () {
+        this.classList.remove('userHover');
+}
 
+function removeClick () {
+        this.classList.remove('userClick');
+}
 
     const rockButton = document.querySelector('.rock');
     const paperButton = document.querySelector('.paper');
@@ -82,7 +93,15 @@ function removeColor () {
     rockButton.addEventListener('click', playGame);
     paperButton.addEventListener('click', playGame);
     scissorsButton.addEventListener('click', playGame);
+
+    rockButton.addEventListener('mouseover', userHover);
+    paperButton.addEventListener('mouseover', userHover);
+    scissorsButton.addEventListener('mouseover', userHover);
     
+    rockButton.addEventListener('mouseleave', removeHover);
+    paperButton.addEventListener('mouseleave', removeHover);
+    scissorsButton.addEventListener('mouseleave', removeHover);
+
     const resultDiv = document.createElement('div');
     const results = document.createElement('p');
     resultDiv.appendChild(results);
@@ -93,6 +112,14 @@ function removeColor () {
     const computerRock = document.querySelector('.computer-rock');
     const computerPaper = document.querySelector('.computer-paper');
     const computerScissors = document.querySelector('.computer-scissors');
+
+    computerRock.addEventListener('transitionend', removeColor)
+    computerPaper.addEventListener('transitionend', removeColor)
+    computerScissors.addEventListener('transitionend', removeColor)
+
+    rockButton.addEventListener('transitionend', removeClick)
+    paperButton.addEventListener('transitionend', removeClick)
+    scissorsButton.addEventListener('transitionend', removeClick)
 
 // Add hover and active states
 // Change color of computer choice 

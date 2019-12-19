@@ -14,8 +14,23 @@ body {
     color: #e5e5e5;  
     font-size: 1.2em;
     padding: 7px;
+    /* transition: all 1s ease; */
 }
 
+.userHover {
+    border: 1px solid #ffb900;
+    box-shadow: 0px 1px 5px 0px #ffb900;
+    /* transition: all .1s ease; */
+}
+
+.userClick {
+    border: 1px solid #ffb900;
+    box-shadow: 0px 1px 5px 0px #ffb900;
+    transition: all 3s ease;
+    transform: scale(1.1);
+}
+
+/* 
 .button:hover {
     box-shadow: 0px 1px 5px 0px #e5e5e5;
 }
@@ -23,7 +38,7 @@ body {
 .button:active {
     border: 1px solid #ffb900;
     box-shadow: 0px 1px 5px 0px #ffb900;
-}
+} */
 
 h1 {
     font-size: 2em;
@@ -105,10 +120,11 @@ h3 {
     padding-top: 5px;
 }
 
-
 .computerPick {
     border: 1px solid #ffb900;
     box-shadow: 0px 1px 5px 0px #ffb900;
+    transition: all 3s ease;
+    transform: scale(1.1);
 }
 
 /* 
