@@ -105,21 +105,21 @@ function removeClick () {
     const resultDiv = document.createElement('div');
     const results = document.createElement('p');
     resultDiv.appendChild(results);
-    resultDiv.classList.add('round-result')
-    const userContainer = document.querySelector('.user-container')
+    resultDiv.classList.add('round-result');
+    const userContainer = document.querySelector('.user-container');
     userContainer.insertAdjacentElement('afterend', resultDiv);
 
     const computerRock = document.querySelector('.computer-rock');
     const computerPaper = document.querySelector('.computer-paper');
     const computerScissors = document.querySelector('.computer-scissors');
 
-    computerRock.addEventListener('transitionend', removeColor)
-    computerPaper.addEventListener('transitionend', removeColor)
-    computerScissors.addEventListener('transitionend', removeColor)
+    computerRock.addEventListener('transitionend', removeColor);
+    computerPaper.addEventListener('transitionend', removeColor);
+    computerScissors.addEventListener('transitionend', removeColor);
 
-    rockButton.addEventListener('transitionend', removeClick)
-    paperButton.addEventListener('transitionend', removeClick)
-    scissorsButton.addEventListener('transitionend', removeClick)
+    rockButton.addEventListener('transitionend', removeClick);
+    paperButton.addEventListener('transitionend', removeClick);
+    scissorsButton.addEventListener('transitionend', removeClick);
 
 // Add hover and active states
 // Change color of computer choice 
