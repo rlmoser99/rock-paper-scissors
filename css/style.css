@@ -22,6 +22,7 @@ body {
 
 .userHover {
     border: 1px solid #ffb900;
+    cursor: pointer;
     -webkit-box-shadow: 0px 1px 5px 0px #ffb900;
             box-shadow: 0px 1px 5px 0px #ffb900;
 }
@@ -177,7 +178,7 @@ img {
                 flex: 0 1 45%;
     }
 
-    .player-wrapper {
+    .player-container {
         margin: 0 15px;
     }
 }
