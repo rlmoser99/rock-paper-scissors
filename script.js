@@ -17,8 +17,6 @@ const computerScissors = document.querySelector('.computer-scissors');
 
 // Naming and Placing the "Results" of each round
 const resultDiv = document.createElement('div');
-// const results = document.createElement('p');
-// resultDiv.appendChild(results);
 const userContainer = document.querySelector('.user-container');
 userContainer.insertAdjacentElement('afterend', resultDiv);
 const gameWrapper = document.querySelector('.game-wrapper');
@@ -105,13 +103,11 @@ function playGame(playerSelection, computerSelection) {
                         computerSelection === 'paper' &&
                         (computerScore <= 5 || playerScore <= 5))
         ) {
-                // results.textContent = `You won, because ${playerSelection} beats ${computerSelection}.`;
-                resultsArray.push(`You won! ${playerSelection} beats ${computerSelection}`);
+                resultsArray.push(`You won: ${playerSelection} beats ${computerSelection}!`);
                 playerScore++; // New Score
                 userScore.textContent = `${playerScore}`; // Updates Score
                 if (playerScore >= 5) {
-                        // results.textContent = `Congrats! You won the FINAL ROUND, because ${playerSelection} beats ${computerSelection}. Refresh to try again!`;
-                        resultsArray.push(`YOU WON FINAL GAME: ${playerSelection} beats ${computerSelection}`);
+                        resultsArray.push(`YOU WON - First to 5 points! You won: ${playerSelection} beats ${computerSelection}!`);
                         rockButton.removeEventListener('click', playGame);
                         paperButton.removeEventListener('click', playGame);
                         scissorsButton.removeEventListener('click', playGame);
@@ -123,20 +119,17 @@ function playGame(playerSelection, computerSelection) {
                         computerSelection === 'rock' &&
                         (computerScore <= 5 || playerScore <= 5))
         ) {
-                // results.textContent = `You lost, because ${computerSelection} beats ${playerSelection}.`;
-                resultsArray.push(`You lost: ${computerSelection} beats ${playerSelection}`);
+                resultsArray.push(`Computer won: ${computerSelection} beats ${playerSelection}.`);
                 computerScore++; // Computer Score
                 randomScore.textContent = `${computerScore}`; // Updates Score
                 if (computerScore >= 5) {
-                        // results.textContent = `You lost the final round, because ${computerSelection} beats ${playerSelection}. GAME OVER, but you can refresh to try again!`;
-                        resultsArray.push(`YOU LOST FINAL GAME: ${computerSelection} beats ${playerSelection}.`);
+                        resultsArray.push(`COMPUTER WON - First to 5 points. Computer won: ${computerSelection} beats ${playerSelection}.`);
                         rockButton.removeEventListener('click', playGame);
                         paperButton.removeEventListener('click', playGame);
                         scissorsButton.removeEventListener('click', playGame);
                 }
         } else {
-                // results.textContent = `It's a tie. The computer picked ${computerSelection} too. Try Again!`;
-                resultsArray.push(`TIE: Both choose ${computerSelection}`);
+                resultsArray.push(`No points for a tie: ${playerSelection} and ${computerSelection}`);
 
         }
         computerColor(computerSelection); // Adds animation for Computer's "Button"

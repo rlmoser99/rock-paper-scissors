@@ -42,8 +42,8 @@ body {
 h1 {
     font-size: 2em;
     margin: 15px;
-    padding-bottom: 15px;
     text-align: center;
+    color: #ffb900;
 }
 
 h2 {
@@ -56,15 +56,29 @@ h3 {
     text-align: center;
 }
 
+p {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #ffb900;
+}
+
 img {
     height: 40px;
 }
+
+.player-container {
+    min-width: 250;
+}
+
 
 .player-label {
     margin-bottom: 5px;
     margin-top: 15px;
 }
 
+li {
+    line-height: 24px;
+}
 
 .player-type img {
     height: 35px;
@@ -170,12 +184,19 @@ img {
             -ms-flex-direction: row;
                 flex-direction: row;
         max-width: 850px;
+        flex-wrap: wrap;
     }
 
     .game-wrapper > * {
         -webkit-box-flex: 0;
             -ms-flex: 0 1 45%;
                 flex: 0 1 45%;
+    }
+
+    .round-result {
+        -webkit-box-flex: 0;
+        -ms-flex: 0 1 100%;
+            flex: 0 1 100%;
     }
 
     .player-container {
