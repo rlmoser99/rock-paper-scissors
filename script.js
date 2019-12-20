@@ -17,11 +17,27 @@ const computerScissors = document.querySelector('.computer-scissors');
 
 // Naming and Placing the "Results" of each round
 const resultDiv = document.createElement('div');
-const results = document.createElement('p');
-resultDiv.appendChild(results);
-resultDiv.classList.add('round-result');
+// const results = document.createElement('p');
+// resultDiv.appendChild(results);
 const userContainer = document.querySelector('.user-container');
 userContainer.insertAdjacentElement('afterend', resultDiv);
+const gameWrapper = document.querySelector('.game-wrapper');
+
+// Creating an Array for making a turn log
+let resultsArray = [];
+let resultsLog = document.createElement('ul');
+resultsLog.classList.add('round-result');
+gameWrapper.insertAdjacentElement('beforeend', resultsLog);
+
+function gameLog() {
+        var li = document.createElement('li');
+        li.textContent = resultsArray[`${resultsArray.length -1}`];
+        resultsLog.insertAdjacentElement('afterbegin', li);
+}
+
+
+
+
 
 // Creating a equally random outcome - rock, paper, or scissors
 function computerPlay() {
@@ -89,11 +105,13 @@ function playGame(playerSelection, computerSelection) {
                         computerSelection === 'paper' &&
                         (computerScore <= 5 || playerScore <= 5))
         ) {
-                results.textContent = `You won, because ${playerSelection} beats ${computerSelection}.`;
+                // results.textContent = `You won, because ${playerSelection} beats ${computerSelection}.`;
+                resultsArray.push(`You won! ${playerSelection} beats ${computerSelection}`);
                 playerScore++; // New Score
                 userScore.textContent = `${playerScore}`; // Updates Score
                 if (playerScore >= 5) {
-                        results.textContent = `Congrats! You won the FINAL ROUND, because ${playerSelection} beats ${computerSelection}. Refresh to try again!`;
+                        // results.textContent = `Congrats! You won the FINAL ROUND, because ${playerSelection} beats ${computerSelection}. Refresh to try again!`;
+                        resultsArray.push(`YOU WON FINAL GAME: ${playerSelection} beats ${computerSelection}`);
                         rockButton.removeEventListener('click', playGame);
                         paperButton.removeEventListener('click', playGame);
                         scissorsButton.removeEventListener('click', playGame);
@@ -105,19 +123,24 @@ function playGame(playerSelection, computerSelection) {
                         computerSelection === 'rock' &&
                         (computerScore <= 5 || playerScore <= 5))
         ) {
-                results.textContent = `You lost, because ${computerSelection} beats ${playerSelection}.`;
+                // results.textContent = `You lost, because ${computerSelection} beats ${playerSelection}.`;
+                resultsArray.push(`You lost: ${computerSelection} beats ${playerSelection}`);
                 computerScore++; // Computer Score
                 randomScore.textContent = `${computerScore}`; // Updates Score
                 if (computerScore >= 5) {
-                        results.textContent = `You lost the final round, because ${computerSelection} beats ${playerSelection}. GAME OVER, but you can refresh to try again!`;
+                        // results.textContent = `You lost the final round, because ${computerSelection} beats ${playerSelection}. GAME OVER, but you can refresh to try again!`;
+                        resultsArray.push(`YOU LOST FINAL GAME: ${computerSelection} beats ${playerSelection}.`);
                         rockButton.removeEventListener('click', playGame);
                         paperButton.removeEventListener('click', playGame);
                         scissorsButton.removeEventListener('click', playGame);
                 }
         } else {
-                results.textContent = `It's a tie. The computer picked ${computerSelection} too. Try Again!`;
+                // results.textContent = `It's a tie. The computer picked ${computerSelection} too. Try Again!`;
+                resultsArray.push(`TIE: Both choose ${computerSelection}`);
+
         }
         computerColor(computerSelection); // Adds animation for Computer's "Button"
+        gameLog();
 }
 
 // Removing animation for User's Button
@@ -154,6 +177,4 @@ computerScissors.addEventListener('transitionend', removeColor);
 // Change sizes of fonts and imgs in media queries
 // add results log
 // Make "results" better worded and formated
-// Can't click on next game until animation is over, for animation to happen.
-// Can I check to see if an animation is running? if (this.classList.includes(userClick))
 // Don’t forget to go back and add your new version to the original Rock Paper Scissors Project!
