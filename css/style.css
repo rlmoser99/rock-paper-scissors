@@ -10,6 +10,38 @@ body {
     min-width: 300px;
 }
 
+h1 {
+    font-size: 2em;
+    margin: 15px;
+    text-align: center;
+    color: #ffb900;
+}
+
+h2 {
+    font-size: 1.5em;
+    text-align: center;
+}
+
+h3 {
+    font-size: 1em;
+    text-align: center;
+}
+
+p {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #ffb900;
+}
+
+img {
+    height: 40px;
+}
+
+.game-wrapper {
+    margin: 0 15px;
+}
+
+/* Buttons */
 .button {
     background-color: #363636; 
     border: 1px solid #e5e5e5;
@@ -39,45 +71,58 @@ body {
             transform: scale(1.1);
 }
 
-h1 {
-    font-size: 2em;
-    margin: 15px;
-    text-align: center;
-    color: #ffb900;
+.user-buttons, .computer-buttons {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
 }
 
-h2 {
-    font-size: 1.5em;
-    text-align: center;
+.user-buttons > * {
+    -webkit-box-flex: 0;
+        -ms-flex: 0 1 20%;
+            flex: 0 1 20%;
 }
 
-h3 {
-    font-size: 1em;
-    text-align: center;
+.computer-buttons > * {
+    -webkit-box-flex: 0;
+        -ms-flex: 0 1 20%;
+            flex: 0 1 20%;
 }
 
-p {
-    text-align: center;
-    margin-bottom: 20px;
-    color: #ffb900;
+.button h3:last-child {
+    padding-top: 5px;
 }
 
-img {
-    height: 40px;
+.computerPick {
+    border: 1px solid #ffb900;
+    -webkit-box-shadow: 0px 1px 5px 0px #ffb900;
+            box-shadow: 0px 1px 5px 0px #ffb900;
+    -webkit-transition: all 2s ease;
+    -o-transition: all 2s ease;
+    transition: all 2s ease;
+    -webkit-transform: scale(1.1);
+        -ms-transform: scale(1.1);
+            transform: scale(1.1);
 }
 
+.refresh {
+    cursor: pointer;
+    margin: 0 auto;
+    padding: 15px 7px;
+    width: 50%;
+}
+
+/* 2 Player Areas not including R-P-S buttons */
 .player-container {
-    min-width: 250;
+    min-width: 250px;
 }
-
 
 .player-label {
     margin-bottom: 5px;
     margin-top: 15px;
-}
-
-li {
-    line-height: 2em;
 }
 
 .player-type img {
@@ -88,10 +133,6 @@ li {
 .user-score, .computer-score {
     font-size: 2em;
     color: #ffb900;
-}
-
-.game-wrapper {
-    margin: 0 15px;
 }
 
 .user-container, .computer-container {
@@ -120,58 +161,19 @@ li {
     padding-bottom: 5px;
 }
 
-.user-buttons, .computer-buttons {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-pack: justify;
-        -ms-flex-pack: justify;
-            justify-content: space-between;
-}
-
-.user-buttons > * {
-    -webkit-box-flex: 0;
-        -ms-flex: 0 1 20%;
-            flex: 0 1 20%;
-}
-
-.computer-buttons > * {
-    -webkit-box-flex: 0;
-        -ms-flex: 0 1 20%;
-            flex: 0 1 20%;
-}
-
 .user-icon {
     line-height: 42px;
 }
 
+/* Score Log */
 .round-result {
-    padding: 15px;
     color: #ffb900;
     font-size: 1.2em;
+    padding: 15px;
 }
 
-.button h3:last-child {
-    padding-top: 5px;
-}
-
-.computerPick {
-    border: 1px solid #ffb900;
-    -webkit-box-shadow: 0px 1px 5px 0px #ffb900;
-            box-shadow: 0px 1px 5px 0px #ffb900;
-    -webkit-transition: all 2s ease;
-    -o-transition: all 2s ease;
-    transition: all 2s ease;
-    -webkit-transform: scale(1.1);
-        -ms-transform: scale(1.1);
-            transform: scale(1.1);
-}
-
-.refresh {
-    cursor: pointer;
-    margin: 0 auto;
-    padding: 15px 7px;
-    width: 50%;
+li {
+    line-height: 2em;
 }
 
 @media only screen and (min-width: 450px) {
@@ -191,7 +193,8 @@ li {
             -ms-flex-direction: row;
                 flex-direction: row;
         max-width: 850px;
-        flex-wrap: wrap;
+        -ms-flex-wrap: wrap;
+            flex-wrap: wrap;
     }
 
     .game-wrapper > * {
@@ -199,15 +202,15 @@ li {
             -ms-flex: 0 1 45%;
                 flex: 0 1 45%;
     }
+    
+    .player-container {
+        margin: 0 15px;
+    }
 
     .round-result {
         -webkit-box-flex: 0;
         -ms-flex: 0 1 100%;
             flex: 0 1 100%;
-    }
-
-    .player-container {
-        margin: 0 15px;
     }
 
     .refresh {

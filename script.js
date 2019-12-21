@@ -93,7 +93,12 @@ function userHover() {
         }
 }
 
-// Removing :hover state from the User's Button
+// Adding :hover state to New Game button (refresh page)
+function refreshHover() {
+        newGame.classList.add('userHover');
+}
+
+// Removing :hover state from Buttons
 function removeHover() {
         this.classList.remove('userHover');
 }
@@ -165,6 +170,11 @@ scissorsButton.addEventListener('transitionend', removeClick);
 rockButton.addEventListener('mouseover', userHover);
 paperButton.addEventListener('mouseover', userHover);
 scissorsButton.addEventListener('mouseover', userHover);
+
+// End Game Button to refresh page (hover start & end, click)
+newGame.addEventListener('mouseover', refreshHover);
+newGame.addEventListener('mouseleave', removeHover);
+newGame.addEventListener('click', refreshHover);
 
 // User's Button Event Listener to remove :hover state
 rockButton.addEventListener('mouseleave', removeHover);
