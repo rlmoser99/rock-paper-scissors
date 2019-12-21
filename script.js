@@ -16,9 +16,7 @@ const computerPaper = document.querySelector('.computer-paper');
 const computerScissors = document.querySelector('.computer-scissors');
 
 // Naming and Placing the "Results" of each round
-const resultDiv = document.createElement('div');
 const userContainer = document.querySelector('.user-container');
-userContainer.insertAdjacentElement('afterend', resultDiv);
 const gameWrapper = document.querySelector('.game-wrapper');
 
 // Creating an Array for making a turn log
@@ -27,15 +25,24 @@ let resultsLog = document.createElement('ul');
 resultsLog.classList.add('round-result');
 gameWrapper.insertAdjacentElement('beforeend', resultsLog);
 
+// Creating a button to refresh page
+const newGame = document.createElement('div');
+newGame.textContent = `Play again`;
+newGame.classList.add('button', 'refresh');
+
+// Function to refresh page
+function refreshPage() {
+        window.location.reload(true);
+}
+
+newGame.addEventListener('click', refreshPage);
+
+// A new result will appeat at the top of the log for each turn
 function gameLog() {
         var li = document.createElement('li');
         li.textContent = resultsArray[`${resultsArray.length -1}`];
         resultsLog.insertAdjacentElement('afterbegin', li);
 }
-
-
-
-
 
 // Creating a equally random outcome - rock, paper, or scissors
 function computerPlay() {
@@ -107,10 +114,11 @@ function playGame(playerSelection, computerSelection) {
                 playerScore++; // New Score
                 userScore.textContent = `${playerScore}`; // Updates Score
                 if (playerScore >= 5) {
-                        resultsArray.push(`YOU WON - First to 5 points! You won: ${playerSelection} beats ${computerSelection}!`);
+                        resultsArray.push(`YOU WON! You got 5 points! Last round: ${playerSelection} beats ${computerSelection}!`);
                         rockButton.removeEventListener('click', playGame);
                         paperButton.removeEventListener('click', playGame);
                         scissorsButton.removeEventListener('click', playGame);
+                        resultsLog.insertAdjacentElement('beforebegin', newGame);
                 }
         } else if (
                 (playerSelection === 'rock' && computerSelection === 'paper') ||
@@ -123,10 +131,11 @@ function playGame(playerSelection, computerSelection) {
                 computerScore++; // Computer Score
                 randomScore.textContent = `${computerScore}`; // Updates Score
                 if (computerScore >= 5) {
-                        resultsArray.push(`COMPUTER WON - First to 5 points. Computer won: ${computerSelection} beats ${playerSelection}.`);
+                        resultsArray.push(`You lost. The computer was first to get 5 points. Last round: ${computerSelection} beats ${playerSelection}.`);
                         rockButton.removeEventListener('click', playGame);
                         paperButton.removeEventListener('click', playGame);
                         scissorsButton.removeEventListener('click', playGame);
+                        resultsLog.insertAdjacentElement('beforebegin', newGame);
                 }
         } else {
                 resultsArray.push(`No points for a tie: ${playerSelection} and ${computerSelection}`);
@@ -168,6 +177,5 @@ computerPaper.addEventListener('transitionend', removeColor);
 computerScissors.addEventListener('transitionend', removeColor);
 
 // Change sizes of fonts and imgs in media queries
-// add results log
 // Make "results" better worded and formated
 // Don’t forget to go back and add your new version to the original Rock Paper Scissors Project!
