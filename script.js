@@ -1,5 +1,6 @@
 let computerScore = 0;
 let playerScore = 0;
+let roundNum = 1;
 
 // Naming User and Computer Scores to update
 const userScore = document.querySelector('.user-score');
@@ -115,16 +116,17 @@ function playGame(playerSelection, computerSelection) {
                         computerSelection === 'paper' &&
                         (computerScore <= 5 || playerScore <= 5))
         ) {
-                resultsArray.push(`You won: ${playerSelection} beats ${computerSelection}!`);
                 playerScore++; // New Score
+                resultsArray.push(`You won round #${roundNum}: ${playerSelection} beats ${computerSelection}. Score: ${playerScore} - ${computerScore}.`);
                 userScore.textContent = `${playerScore}`; // Updates Score
                 if (playerScore >= 5) {
-                        resultsArray.push(`YOU WON! You got 5 points! Last round: ${playerSelection} beats ${computerSelection}!`);
+                        resultsArray.push(`YOU WON! You got 5 points! Round #${roundNum}: ${playerSelection} beats ${computerSelection}.`);
                         rockButton.removeEventListener('click', playGame);
                         paperButton.removeEventListener('click', playGame);
                         scissorsButton.removeEventListener('click', playGame);
                         resultsLog.insertAdjacentElement('beforebegin', newGame);
                 }
+                roundNum++;
         } else if (
                 (playerSelection === 'rock' && computerSelection === 'paper') ||
                 (playerSelection === 'paper' && computerSelection === 'scissors') ||
@@ -132,18 +134,20 @@ function playGame(playerSelection, computerSelection) {
                         computerSelection === 'rock' &&
                         (computerScore <= 5 || playerScore <= 5))
         ) {
-                resultsArray.push(`Computer won: ${computerSelection} beats ${playerSelection}.`);
                 computerScore++; // Computer Score
+                resultsArray.push(`Computer won round #${roundNum}: ${computerSelection} beats ${playerSelection}. Score: ${playerScore} - ${computerScore}.`);
                 randomScore.textContent = `${computerScore}`; // Updates Score
                 if (computerScore >= 5) {
-                        resultsArray.push(`You lost. The computer was first to get 5 points. Last round: ${computerSelection} beats ${playerSelection}.`);
+                        resultsArray.push(`You lost. The computer was first to get 5 points. Round #${roundNum}: ${computerSelection} beats ${playerSelection}.`);
                         rockButton.removeEventListener('click', playGame);
                         paperButton.removeEventListener('click', playGame);
                         scissorsButton.removeEventListener('click', playGame);
                         resultsLog.insertAdjacentElement('beforebegin', newGame);
                 }
+                roundNum++;
         } else {
-                resultsArray.push(`No points for a tie: ${playerSelection} and ${computerSelection}`);
+                resultsArray.push(`Tie for round #${roundNum}: ${playerSelection} and ${computerSelection}. No points.`);
+                roundNum++;
 
         }
         computerColor(computerSelection); // Adds animation for Computer's "Button"
@@ -185,7 +189,3 @@ scissorsButton.addEventListener('mouseleave', removeHover);
 computerRock.addEventListener('transitionend', removeColor);
 computerPaper.addEventListener('transitionend', removeColor);
 computerScissors.addEventListener('transitionend', removeColor);
-
-// Change sizes of fonts and imgs in media queries
-// Make "results" better worded and formated
-// Don’t forget to go back and add your new version to the original Rock Paper Scissors Project!
