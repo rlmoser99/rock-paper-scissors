@@ -36,9 +36,7 @@ function refreshPage() {
         window.location.reload(true);
 }
 
-newGame.addEventListener('click', refreshPage);
-
-// A new result will appeat at the top of the log for each turn
+// A new result will appear at the top of the log for each turn
 function gameLog() {
         var li = document.createElement('li');
         li.textContent = resultsArray[`${resultsArray.length -1}`];
@@ -189,3 +187,6 @@ scissorsButton.addEventListener('mouseleave', removeHover);
 computerRock.addEventListener('transitionend', removeColor);
 computerPaper.addEventListener('transitionend', removeColor);
 computerScissors.addEventListener('transitionend', removeColor);
+
+// Refresh Page Button at the end of the game
+newGame.addEventListener('click', refreshPage);
