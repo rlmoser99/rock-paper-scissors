@@ -1,5 +1,5 @@
 # Rock Paper Scissors Project
-JavaScript Project from The Odin Project. Part One: (https://www.theodinproject.com/courses/web-development-101/lessons/rock-paper-scissors?ref=lnav). Part Two: (https://www.theodinproject.com/courses/web-development-101/lessons/dom-manipulation?ref=lnav#practice).
+JavaScript Project from The Odin Project. [Part One](https://www.theodinproject.com/paths/foundations/courses/foundations/lessons/rock-paper-scissors) and [Part Two](https://www.theodinproject.com/paths/foundations/courses/foundations/lessons/dom-manipulation#practice)
 
 ## Project Reflections
 First, I had to create a rock, paper, scissors game that was only played in the console. This project code can be viewed in the "index-original.html" file. After I created this game, I was not satisfied with how often the computer choose "rock", compared to "paper" or "scissors". I noticed that it would often choose "rock", so I recorded the results of 50 random choices. My hypothesis was correct - 25 of them were "rock", 15 were "paper" and 10 were "scissors". Therefore, I choose to re-work this function using the modulo operation, which created a more randomized output. Using the new function, I recorded 50 random choices and each output happened between 15-17 times.  
